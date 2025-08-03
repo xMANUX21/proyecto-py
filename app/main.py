@@ -3,6 +3,8 @@ from fastapi import FastAPI, Depends
 # from app.auth.controller import router as auth_router
 from app.routes.auth_routes import router as loginRouter
 from app.routes.user_routes import router as userRouter
+
+
 app = FastAPI()
 
 # app.include_router(auth_router, prefix="/api/auth")
