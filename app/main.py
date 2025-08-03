@@ -1,12 +1,13 @@
 from .utils.dbConn import create_db_and_tables
 from fastapi import FastAPI, Depends
 # from app.auth.controller import router as auth_router
-from app.routes.auth_routes import router as userRouter
-
+from app.routes.auth_routes import router as loginRouter
+from app.routes.user_routes import router as userRouter
 app = FastAPI()
 
 # app.include_router(auth_router, prefix="/api/auth")
-app.include_router(userRouter, prefix="/api")
+app.include_router(loginRouter, prefix="/api")
+app.include_router(userRouter,prefix="/api")
 
 @app.get("/")
 def health_check():
