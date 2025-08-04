@@ -7,7 +7,6 @@ from app.auth.user_controller import get_current_user
 
 router = APIRouter(tags=["users"])
 
-router = APIRouter()
 
 #El login y register estan en auth Routes
 

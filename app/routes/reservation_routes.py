@@ -14,8 +14,6 @@ from datetime import date
 
 router = APIRouter(tags=["reservations"])
 
-router = APIRouter()
-
 
 #Crear reservacion
 @router.post('/',response_model=ReservationResponse)
