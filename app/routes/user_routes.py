@@ -5,7 +5,7 @@ from app.utils.dbConn import get_session
 from app.auth.user_model import User
 from app.auth.user_controller import get_current_user
 
-router = APIRouter(prefix="/auth", tags=["auth"])
+router = APIRouter(tags=["users"])
 
 router = APIRouter()
 

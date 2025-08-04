@@ -2,8 +2,7 @@ from passlib.context import CryptContext
 from fastapi import HTTPException
 from sqlmodel import Session, select
 from app.auth.user_model import User
-from app.routes.auth_routes import UserCreate
-from app.schemas.user_schema import UserCreate,UserLogin
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def hash_password(password: str) -> str:
