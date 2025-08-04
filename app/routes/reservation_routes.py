@@ -49,6 +49,7 @@ def room_reservation(
         raise HTTPException(status_code=404,detail="No se encontro reserva para esta sala")
     return reservation
 
+
 #Reservas por fecha
 @router.get('/date/{reservation_date}',response_model=List[ReservationResponse])
 def date_reservation(
@@ -61,6 +62,7 @@ def date_reservation(
         raise HTTPException(status_code=404,detail="No se encontro reserva para esa fecha")
     
     return reservation
+
 
 #Para eliminar reserva por id
 @router.delete('/{id}')
