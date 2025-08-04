@@ -7,8 +7,6 @@ from app.auth.user_controller import register_controller, login_controller
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
-router = APIRouter()
-
 @router.post("/register", response_model=User)
 def register_user(user_data: UserCreate, session: Session = Depends(get_session)):
     return register_controller(user_data, session)

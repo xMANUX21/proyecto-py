@@ -5,6 +5,8 @@ from app.routes.auth_routes import router as loginRouter
 from app.routes.user_routes import router as userRouter
 from app.routes.room_routes import router as roomRouter
 from app.routes.reservation_routes import router as reservationRouter
+from app.routes.report_routes import router as reportRouter
+
 
 app = FastAPI()
 
@@ -13,6 +15,8 @@ app.include_router(loginRouter, prefix="/api/auth")
 app.include_router(userRouter,prefix="/api/users")
 app.include_router(roomRouter,prefix="/api/rooms")
 app.include_router(reservationRouter,prefix="/api/reservations")
+app.include_router(reportRouter,prefix="/api/reports")
+
 
 @app.get("/")
 def health_check():

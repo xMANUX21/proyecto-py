@@ -11,7 +11,6 @@ from typing import List
 
 router = APIRouter(tags=["rooms"])
 
-router = APIRouter()
 
 #Optener salas
 @router.get("/", response_model=List[RoomResponse])
