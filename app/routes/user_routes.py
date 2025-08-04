@@ -5,7 +5,7 @@ from app.utils.dbConn import get_session
 from app.auth.user_model import User
 from app.auth.user_controller import get_current_user
 
-router = APIRouter(prefix="/auth", tags=["auth"])
+router = APIRouter(tags=["users"])
 
 router = APIRouter()
 
@@ -20,7 +20,7 @@ def get_me(current_user: User = Depends(get_current_user)):
 #Optener usuarios solo admin
 @router.get("/", response_model=list[User])
 def get_all_users(session: Session = Depends(get_session), current_user: User = Depends(get_current_user)):
-    if current_user.rol != "admin":
+    if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Solo los administradores pueden ver todos los usuarios")
     users = session.exec(select(User)).all()
     return users
@@ -29,7 +29,7 @@ def get_all_users(session: Session = Depends(get_session), current_user: User = 
 #Borrar un usuario solo admin
 @router.delete("/{id}", status_code=204)
 def delete_user(id: int, session: Session = Depends(get_session), current_user: User = Depends(get_current_user)):
-    if current_user.rol != "admin":
+    if current_user.role != "admin":
         raise HTTPException(status_code=403, detail="Solo los administradores pueden eliminar usuarios")
     user = session.get(User, id)
     if not user:
